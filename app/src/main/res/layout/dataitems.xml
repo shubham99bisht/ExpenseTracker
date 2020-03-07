@@ -15,84 +15,71 @@
         app:contentPadding="@dimen/_1sdp"
         android:layout_margin="@dimen/_1sdp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/bill_icon"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:background="@drawable/common_google_signin_btn_icon_light"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bill_icon"
-                    android:background="@drawable/common_google_signin_btn_icon_light"/>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/details"
+                android:id="@+id/layout1"
+                android:layout_toRightOf="@+id/bill_icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="15dp">
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/vendor_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:text="Vendor Name"
-                    android:textColor="#000"
-                    android:textAllCaps="true"
-                    android:id="@+id/vendor_name"/>
+                    android:textColor="#17202A"
+                    android:textAllCaps="true"/>
 
                 <TextView
+                    android:id="@+id/date"
+                    android:layout_marginLeft="@dimen/_70sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/hinttextcolor"
                     android:text="Date"
-                    android:layout_below="@+id/vendor_name"
-                    android:textColor="#000"
-                    android:id="@+id/date"/>
+                    android:textColor="#ABB2B9"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/layout1"
+                android:layout_toRightOf="@+id/bill_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
 
                 <TextView
+                    android:id="@+id/cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Amount"
-                    android:id="@+id/cost"
-                    android:layout_below="@+id/date"
-                    android:textColor="#000"/>
-
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Place"-->
-        <!--            android:textColor="#000"-->
-        <!--            android:id="@+id/place"-->
-        <!--            android:layout_below="@+id/date"-->
-        <!--            android:textAlignment="center"/>-->
-
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Category"-->
-        <!--            android:textColor="#000"-->
-        <!--            android:layout_below="@+id/cost"-->
-        <!--            android:layout_alignParentRight="true"-->
-        <!--            android:id="@+id/category"/>-->
+                    android:textColor="#273746"/>
 
                 <ImageView
                     android:id="@+id/verified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"/>
+                    android:layout_marginLeft="@dimen/_180sdp" />
 
 
-            </RelativeLayout>
-        </LinearLayout>
+            </LinearLayout>
 
+
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 </FrameLayout>

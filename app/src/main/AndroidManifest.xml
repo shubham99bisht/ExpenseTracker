@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:theme="@style/generalnotitle" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/generalnotitle" />
         <activity android:name=".BillFormEditActivity" />
         <activity android:name=".ProfileActivity" />
         <activity
@@ -18,8 +20,12 @@
         <activity
             android:name=".Homeactivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Registeractivity" android:theme="@style/generalnotitle"/>
-        <activity android:name=".SplashActivity" android:theme="@style/generalnotitle">
+        <activity
+            android:name=".Registeractivity"
+            android:theme="@style/generalnotitle" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/generalnotitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <!-- <action android:name="android.intent.action.VIEW" /> -->
@@ -27,12 +33,13 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.hardware.camera2.full" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

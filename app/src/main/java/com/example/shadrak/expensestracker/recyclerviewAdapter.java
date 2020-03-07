@@ -1,5 +1,6 @@
 package com.example.shadrak.expensestracker;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,9 +9,11 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewHolder> {
 
@@ -45,7 +49,7 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i)
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i)
     {
         viewHolder.v_name.setText(list.get(i).getVendor());
         viewHolder.date.setText(list.get(i).getDate());
@@ -69,6 +73,19 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
                 System.out.println("hdskjfh ieyroi:"+bill_id);
                 intent.putExtra("bill_id",bill_id);
                 context1.startActivity(intent);
+            }
+        });
+
+        viewHolder.icon.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String link_ =list.get(i).getLink();
+//                final AlertDialog.Builder builder= new AlertDialog.Builder(context1);
+//                final ImageView img = (ImageView) v.findViewById(R.id.showimages);
+//                Picasso.with(context1).load(link_).into(img);
+
             }
         });
 

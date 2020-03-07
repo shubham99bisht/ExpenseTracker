@@ -6,114 +6,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="@dimen/_20sdp"
     tools:context=".BillFormEditActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/_10sdp"
-        android:gravity="center">
+        android:layout_gravity="center">
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/verify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_5sdp"
-            android:gravity="center">
+            android:textColorHint="#17202A"
+            android:hint="Verify Details"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"/>
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#17202A"
-                android:hint="Edit"
-                android:layout_margin="@dimen/_5sdp"
-                android:gravity="center"
-                android:textSize="@dimen/_20sdp"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/edit_vender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Vender"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-
-            <EditText
-                android:id="@+id/edit_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Address"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-
-
-            <EditText
-                android:id="@+id/edit_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Date"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-
-
-            <EditText
-                android:id="@+id/edit_items"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Items"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-            <EditText
-                android:id="@+id/edit_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Amounts"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-            <EditText
-                android:id="@+id/edit_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/hinttextcolor"
-                android:hint="Category"
-                android:layout_margin="@dimen/_5sdp"
-                android:inputType="textPersonName"
-                android:textColor="#17202A"/>
-
-
-            <Button
-                android:id="@+id/edit_billSubmit"
-                android:layout_width="@dimen/_190sdp"
-                android:layout_height="wrap_content"
-                android:text="Submit"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:layout_margin="5dp"
-                android:textColorHighlight="@color/highlist"
-                android:textColor="@color/textwhite"
-                android:background="@drawable/btnldesign"/>
-
-
-        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vender:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_vender"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_address"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_date"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Items:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_items"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_amount"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categery:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_category"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/edit_billSubmit"
+        android:layout_width="@dimen/_190sdp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:textColorHighlight="@color/highlist"
+        android:textColor="@color/textwhite"
+        android:background="@drawable/btnldesign"/>
 </LinearLayout>
