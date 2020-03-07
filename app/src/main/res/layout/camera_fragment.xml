@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/save_and_dlt"
+        android:background="#0288D1"
+        android:textColor="#ffffff"
         android:text="CAPTURE" />
 
     <FrameLayout
@@ -46,14 +48,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="SAVE" />
+            android:text="SAVE"
+            android:textColor="#ffffff"
+            android:background="#388E3C"/>
 
         <Button
             android:id="@+id/delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DELETE" />
+            android:text="DELETE"
+            android:textColor="#ffffff"
+            android:background="#B71C1C"/>
     </LinearLayout>
 
 

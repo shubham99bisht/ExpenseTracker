@@ -41,27 +41,22 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-//public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener
+
 public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     recyclerviewAdapter adapter;         //recyclerviewAdapter class
     DatabaseReference rootref;//firebase connections
-//    private FirebaseRecyclerAdapter<newBill, MyViewHolder> firebaseRecyclerAdapter;        //firebase connections
+
     ArrayList<newBill> list;
     String amount, date, place, vendor, category, status, link, items, bill_id;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     String userId;
-    ImageView verified, icon;
-    LinearLayout bills_fragment;
 
-    private Drawable dlt_icon;
-    private ColorDrawable background;
 
-    FloatingActionButton fab;
 
 
     @Override
@@ -74,9 +69,9 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
-
 
         return rootview;
 
@@ -93,26 +88,17 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
         userId = user.getUid();
 
         list = new ArrayList<>();
-
-//        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
-//        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
-//        populate_list(userId);
-        populate_list(userId);
-
-
-    }
-
-    private void populate_list(String userId) {
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         rootref = database.getReference().child("Bills").child(userId);
 
 
-
         rootref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot data: dataSnapshot.getChildren()){
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                list.clear();
+                for(DataSnapshot data: dataSnapshot.getChildren())
+                {
                     amount = data.child("amount").getValue().toString();
                     date = data.child("date").getValue().toString();
                     place = data.child("place").getValue().toString();
@@ -123,39 +109,40 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
                     items = data.child("items").getValue().toString();
                     bill_id = data.getKey();
 
-                    list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+                  list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
 
-                    adapter.notifyDataSetChanged();
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
 
-    }
 
+
+    }
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position)
     {
         if (viewHolder instanceof recyclerviewAdapter.ViewHolder)
         {
             String bill_id = list.get(position).getBillId();
-//            final newBill deletedItem = list.get(viewHolder.getAdapterPosition());
-//            final int deletedIndex = viewHolder.getAdapterPosition();
+            if(bill_id != null)
+            {
+                // remove the item from recycler view
+                recyclerviewAdapter.removeItem(viewHolder.getAdapterPosition());
 
-            // remove the item from recycler view
-            recyclerviewAdapter.removeItem(viewHolder.getAdapterPosition());
-
-
-            firebaseAuth = FirebaseAuth.getInstance();
-            user = firebaseAuth.getCurrentUser();
-            String userID = user.getUid();
-            firebaseDatabase = FirebaseDatabase.getInstance();
-            DatabaseReference databaseReference = firebaseDatabase.getReference().child("Bills").child(userID).child(bill_id);
-            databaseReference.removeValue();
+                firebaseAuth = FirebaseAuth.getInstance();
+                user = firebaseAuth.getCurrentUser();
+                String userID = user.getUid();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference = firebaseDatabase.getReference().child("Bills").child(userID).child(bill_id);
+                databaseReference.removeValue();
+            }
 
         }
     }
