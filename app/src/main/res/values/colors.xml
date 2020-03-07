@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    #3F51B5  #303F9F-->
+    <color name="colorPrimary">#232325</color>
+    <color name="colorPrimaryDark">#232325</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="lightblue">#33bbff</color>
+    <color name="darkblue">#006699</color>
+    <color name="red">#ff0000</color>
+
+    <color name="bgcolor">#000000</color>
+    <color name="textclr">#B2BABB</color>
+    <color name="hinttextcolor">#B2BABB</color>
+    <color name="textwhite">#FDFEFE</color>
+    <color name="highlist">#F4D03F</color>
+</resources>

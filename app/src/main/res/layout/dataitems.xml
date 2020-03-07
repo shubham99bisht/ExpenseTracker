@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="@dimen/_2sdp"
+    android:id="@+id/framelayout">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_6sdp"
+        android:id="@+id/view_foreground"
+        app:contentPadding="@dimen/_1sdp"
+        android:layout_margin="@dimen/_1sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bill_icon"
+                    android:background="@drawable/common_google_signin_btn_icon_light"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Vendor Name"
+                    android:textColor="#000"
+                    android:textAllCaps="true"
+                    android:id="@+id/vendor_name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:layout_below="@+id/vendor_name"
+                    android:textColor="#000"
+                    android:id="@+id/date"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:id="@+id/cost"
+                    android:layout_below="@+id/date"
+                    android:textColor="#000"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Place"-->
+        <!--            android:textColor="#000"-->
+        <!--            android:id="@+id/place"-->
+        <!--            android:layout_below="@+id/date"-->
+        <!--            android:textAlignment="center"/>-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Category"-->
+        <!--            android:textColor="#000"-->
+        <!--            android:layout_below="@+id/cost"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:id="@+id/category"/>-->
+
+                <ImageView
+                    android:id="@+id/verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

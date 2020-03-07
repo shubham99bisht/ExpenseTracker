@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:menu="@menu/option_menu"
+    tools:context=".Homeactivity"
+    android:id="@+id/relativelayout"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorColor="@android:color/holo_blue_dark"
+        app:tabTextColor="#e7e757"
+        app:tabSelectedTextColor="@android:color/white"
+        android:background="@color/colorPrimary"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/tablayout"/>
+
+
+
+<!--    <android.support.design.widget.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="25dp"-->
+<!--        android:layout_marginEnd="25dp"-->
+<!--        android:layout_marginRight="25dp"-->
+<!--        android:layout_marginBottom="25dp"-->
+<!--        android:src="@drawable/pencil" />-->
+
+
+</RelativeLayout>

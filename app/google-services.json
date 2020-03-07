@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "886344330580",
+    "firebase_url": "https://expense-tracker-7e30c.firebaseio.com",
+    "project_id": "expense-tracker-7e30c",
+    "storage_bucket": "expense-tracker-7e30c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886344330580:android:3bf67f72b1dec8c1",
+        "android_client_info": {
+          "package_name": "com.example.shadrak.expensestracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886344330580-7qv5hthp83c1aekg6kvg63pep4qgja6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEGCnNduin5_pIQraAWA-m90zCVTdJaNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886344330580-7qv5hthp83c1aekg6kvg63pep4qgja6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
