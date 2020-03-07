@@ -13,6 +13,8 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -82,6 +84,16 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
             public void onClick(View v)
             {
                 String link_ =list.get(i).getLink();
+                final View mview=LayoutInflater.from(context1).inflate(R.layout.show_img,null);
+                WebView webview;
+                webview = (WebView) mview.findViewById(R.id.webview);
+                webview.loadUrl("http://"+link_);
+
+//                final WebView webView = (WebView) mview.findViewById(R.id.webview);
+//                webView.getSettings().setJavaScriptEnabled(true);
+//                webView.setWebViewClient(new WebViewClient());
+//                webView.loadUrl("https://www.google.com/");
+                System.out.println("sagdfkjgksdfyowe"+link_);
 //                final AlertDialog.Builder builder= new AlertDialog.Builder(context1);
 //                final ImageView img = (ImageView) v.findViewById(R.id.showimages);
 //                Picasso.with(context1).load(link_).into(img);
