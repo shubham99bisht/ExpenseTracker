@@ -23,3 +23,15 @@ Screenshots | Screenshots | Screenshots
 Screenshots | Screenshots | Screenshots
 :----------------:|:----------------:|:----------------:
 ![Camera](https://github.com/shubham99bisht/ExpenseTracker/blob/master/Screenshots/camera.jpeg) | ![Verification](https://github.com/shubham99bisht/ExpenseTracker/blob/master/Screenshots/verification.jpeg) | ![Graph](https://github.com/shubham99bisht/ExpenseTracker/blob/master/Screenshots/graph.jpeg)
+
+### Technologies/Tools used:
+* **Firebase** (Database)
+* **Tesseract OCR** (OCR)
+* **Flask** (Server)
+* **Camera2 API** (Camera)
+* **MPAndroidChart** (Piechart)
+
+#### Team Members:
+* Sonu Shahuji
+* Mukund Choudhary
+* Shadrak Gurupnor
