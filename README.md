@@ -1,3 +1,3 @@
-![Expos](https://github.com/shubham99bisht/Expos/blob/master/app/src/main/expenses-web.png)
+![Expense Tracker](https://github.com/shubham99bisht/Expos/blob/master/logo_black.png)
 
-# Expos
+# Expense Tracker
