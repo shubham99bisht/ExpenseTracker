@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/save_and_dlt"
-        android:background="#0288D1"
+        android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:text="CAPTURE" />
 
@@ -59,7 +59,7 @@
             android:layout_weight="1"
             android:text="DELETE"
             android:textColor="#ffffff"
-            android:background="#B71C1C"/>
+            android:background="#BB1414"/>
     </LinearLayout>
 
 

@@ -1,5 +1,7 @@
 package com.example.shadrak.expensestracker;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,9 +24,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,15 +59,15 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
-    String userId;
-
+    String userId, cat;
+    Spinner category_spin;
 
 
 
     @Override
     public View onCreateView(@Nullable LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootview = inflater.inflate(R.layout.bills_fragment, container, false);
+        final View rootview = inflater.inflate(R.layout.bills_fragment, container, false);
         recyclerView = rootview.findViewById(R.id.bills_recyclerview);
         adapter = new recyclerviewAdapter(this, list,getContext());
         layoutManager = new LinearLayoutManager(getActivity());
@@ -72,6 +77,44 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
 
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
+
+//        // Spinner code -------- Starts
+//        rootref = FirebaseDatabase.getInstance().getReference();
+//        rootref.child("Category").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                ArrayList<String> cate = new ArrayList<>();
+//                category_spin = rootview.findViewById(R.id.bills_category);
+//
+//                for (DataSnapshot categorySnapshot: dataSnapshot.getChildren()) {
+//                    String cat = categorySnapshot.getValue(String.class);
+//                    cate.add(cat);
+//                }
+//
+//                ArrayAdapter<String> cat_adap = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, cate);
+//                cat_adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                category_spin.setAdapter(cat_adap);
+//
+//                category_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                        cat = (String) adapterView.getSelectedItem();
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        // Spinner code ---------- Ends
 
         return rootview;
 
@@ -99,14 +142,14 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
                 list.clear();
                 for(DataSnapshot data: dataSnapshot.getChildren())
                 {
-                    amount = data.child("amount").getValue().toString();
-                    date = data.child("date").getValue().toString();
-                    place = data.child("place").getValue().toString();
-                    vendor = data.child("vendor").getValue().toString();
-                    category = data.child("category").getValue().toString();
-                    status = data.child("status").getValue().toString();
-                    link = data.child("link").getValue().toString();
-                    items = data.child("items").getValue().toString();
+                    amount = data.child("Amount").getValue().toString();
+                    date = data.child("Date").getValue().toString();
+                    place = data.child("Address").getValue().toString();
+                    vendor = data.child("Company").getValue().toString();
+                    category = data.child("Category").getValue().toString();
+                    status = data.child("Status").getValue().toString();
+                    link = data.child("Link").getValue().toString();
+                    items = data.child("Items").getValue().toString();
                     bill_id = data.getKey();
 
                   list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
@@ -126,24 +169,64 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
 
     }
     @Override
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position)
+    public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction, final int position)
     {
-        if (viewHolder instanceof recyclerviewAdapter.ViewHolder)
-        {
-            String bill_id = list.get(position).getBillId();
-            if(bill_id != null)
-            {
-                // remove the item from recycler view
-                recyclerviewAdapter.removeItem(viewHolder.getAdapterPosition());
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        //Yes button clicked
+                        if (viewHolder instanceof recyclerviewAdapter.ViewHolder)
+                        {
+                            String bill_id = list.get(position).getBillId();
+                            if(bill_id != null)
+                            {
+                                // remove the item from recycler view
+                                recyclerviewAdapter.removeItem(viewHolder.getAdapterPosition());
 
-                firebaseAuth = FirebaseAuth.getInstance();
-                user = firebaseAuth.getCurrentUser();
-                String userID = user.getUid();
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference databaseReference = firebaseDatabase.getReference().child("Bills").child(userID).child(bill_id);
-                databaseReference.removeValue();
+                                firebaseAuth = FirebaseAuth.getInstance();
+                                user = firebaseAuth.getCurrentUser();
+                                String userID = user.getUid();
+                                firebaseDatabase = FirebaseDatabase.getInstance();
+                                DatabaseReference databaseReference = firebaseDatabase.getReference().child("Bills").child(userID).child(bill_id);
+                                databaseReference.removeValue();
+                            }
+
+                        }
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        Log.d("random", "No");
+//                        String bill_id = list.get(position).getBillId();
+                        newBill bill = new newBill();
+                        recyclerviewAdapter.restoreItem(bill, viewHolder.getAdapterPosition());
+                        break;
+                }
             }
+        };
 
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Are you sure to Delete?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+//        if (viewHolder instanceof recyclerviewAdapter.ViewHolder)
+//        {
+//            String bill_id = list.get(position).getBillId();
+//            if(bill_id != null)
+//            {
+//                // remove the item from recycler view
+//                recyclerviewAdapter.removeItem(viewHolder.getAdapterPosition());
+//
+//                firebaseAuth = FirebaseAuth.getInstance();
+//                user = firebaseAuth.getCurrentUser();
+//                String userID = user.getUid();
+//                firebaseDatabase = FirebaseDatabase.getInstance();
+//                DatabaseReference databaseReference = firebaseDatabase.getReference().child("Bills").child(userID).child(bill_id);
+//                databaseReference.removeValue();
+//            }
+//
+//        }
     }
 }

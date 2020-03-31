@@ -10,9 +10,9 @@ public class newBill {
     private String Place;
     private String Category;
     private String Vendor;
-    private String Status = "Not Verified";
-    private String Link = NULL;
-    private String Items = NULL;
+    private String Status;
+    private String Link;
+    private String Items;
 
     public newBill(String billId,String amount, String date, String place, String vendor, String category, String status, String link, String items) {
         this.BillId = billId;
@@ -24,6 +24,10 @@ public class newBill {
         this.Status = status;
         this.Link = link;
         this.Items = items;
+    }
+
+    public newBill() {
+
     }
 
     //Getter

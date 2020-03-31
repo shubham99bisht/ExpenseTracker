@@ -44,7 +44,6 @@
 
         <EditText
             android:id="@+id/edit_vender"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -65,7 +64,6 @@
 
         <EditText
             android:id="@+id/edit_address"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -107,7 +105,6 @@
 
         <EditText
             android:id="@+id/edit_items"
-            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -147,11 +144,15 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edit_category"
-            android:inputType="numberDecimal"
+<!--        <EditText-->
+<!--            android:id="@+id/edit_category"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+        <Spinner
+            android:id="@+id/category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:prompt="@string/category"/>
 
     </LinearLayout>
     <Button
@@ -159,7 +160,7 @@
         android:layout_width="@dimen/_190sdp"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:padding="10dp"
+        android:padding="15dp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_margin="5dp"

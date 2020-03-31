@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -57,11 +58,13 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
         viewHolder.date.setText(list.get(i).getDate());
         viewHolder.cost.setText(list.get(i).getAmount());
 
-        bill = list.get(i);
-        Glide.with(context).load(bill.getLink()).into(viewHolder.icon);
+//        bill = list.get(i);
+//        Glide.with(context).load(bill.getLink()).into(viewHolder.icon);
 
         if(list.get(i).getStatus().equals("0")) {
             viewHolder.verified.setImageResource(R.drawable.ic_not_verified);
+//            viewHolder.foreground.setCardBackgroundColor(R.color.cardcolor);
+//            viewHolder.foreground.getResources().getColor(R.color.cardcolor);
         } else {
             viewHolder.verified.setImageResource(R.drawable.ic_verified_user);
         }
@@ -84,19 +87,12 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
             public void onClick(View v)
             {
                 String link_ =list.get(i).getLink();
-                final View mview=LayoutInflater.from(context1).inflate(R.layout.show_img,null);
-                WebView webview;
-                webview = (WebView) mview.findViewById(R.id.webview);
-                webview.loadUrl("http://"+link_);
 
-//                final WebView webView = (WebView) mview.findViewById(R.id.webview);
-//                webView.getSettings().setJavaScriptEnabled(true);
-//                webView.setWebViewClient(new WebViewClient());
-//                webView.loadUrl("https://www.google.com/");
-                System.out.println("sagdfkjgksdfyowe"+link_);
-//                final AlertDialog.Builder builder= new AlertDialog.Builder(context1);
-//                final ImageView img = (ImageView) v.findViewById(R.id.showimages);
-//                Picasso.with(context1).load(link_).into(img);
+                if (!link_.startsWith("http://") && !link_.startsWith("https://"))
+                    link_ = "http://" + link_;
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link_));
+                context.startActivity(browserIntent);
 
             }
         });

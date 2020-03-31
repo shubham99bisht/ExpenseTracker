@@ -3,6 +3,7 @@ package com.example.shadrak.expensestracker;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,6 +29,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -47,6 +50,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -158,6 +162,8 @@ public class camera_fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 billID = dataSnapshot.child("Prev_id").getValue().toString();
                 Log.d("Bill ID:","BillID "+billID);
+                billID = String.valueOf(Integer.parseInt(billID)+1);
+                Log.d("Bill ID:","BillID "+billID);
             }
 
             @Override
@@ -180,8 +186,19 @@ public class camera_fragment extends Fragment {
                 try {
                     save(bytes);
                     sendImage(fileUri);
+                    Toast.makeText(getActivity(),"Image is Uploading...", Toast.LENGTH_SHORT).show();
                     imagePreview.setVisibility(View.GONE);
                     imageView.setVisibility(View.VISIBLE);
+
+                    //update previd in users
+                    databaseReference.child("Prev_id").setValue(billID);
+
+                    //Fragment exchanges
+                    Fragment fragment = new camera_fragment();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.bills_fragment, fragment);
+                    transaction.commit();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -380,7 +397,6 @@ public class camera_fragment extends Fragment {
                 @Override
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(getActivity(),"Saved "+file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
                 }
             };

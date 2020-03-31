@@ -18,7 +18,7 @@
             android:layout_width="@dimen/_240sdp"
             android:layout_height="@dimen/_110sdp"
             android:layout_margin="@dimen/_5sdp"
-            android:src="@drawable/logicon"/>
+            android:src="@drawable/logo_black2"/>
 
 
         <LinearLayout

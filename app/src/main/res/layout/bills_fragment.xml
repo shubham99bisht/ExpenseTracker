@@ -8,12 +8,19 @@
     android:id="@+id/bills_fragment"
     tools:context=".bills_fragment">
 
+<!--    <Spinner-->
+<!--        android:id="@+id/bills_category"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:prompt="@string/category"-->
+<!--        android:layout_margin="@dimen/_8sdp"/>-->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bills_recyclerview"
         android:layout_width="match_parent"
         android:scrollbars="vertical"
         android:layout_height="fill_parent"
-        android:background="#F2F4F4">
+        android:background="#b3bcef">
 
     </android.support.v7.widget.RecyclerView>
 

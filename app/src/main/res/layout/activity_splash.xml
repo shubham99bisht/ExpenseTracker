@@ -14,7 +14,7 @@
         android:layout_height="@dimen/_150sdp"
         android:layout_margin="@dimen/_10sdp"
         android:layout_centerInParent="true"
-        android:src="@drawable/logicon">
+        android:src="@drawable/logo_black2">
 
     </ImageView>
 

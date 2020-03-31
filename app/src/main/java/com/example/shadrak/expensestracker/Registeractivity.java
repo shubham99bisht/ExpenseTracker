@@ -93,7 +93,7 @@ public class Registeractivity extends AppCompatActivity {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                                 String uid = user.getUid();
-                                int prev_id = 0000;
+                                String prev_id = "0";
                                 if(uid == null)
                                     Toast.makeText(getApplicationContext(), "Some Error occured!!",Toast.LENGTH_SHORT).show();
                                 else {

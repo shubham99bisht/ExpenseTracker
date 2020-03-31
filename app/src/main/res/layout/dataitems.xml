@@ -14,6 +14,7 @@
         app:cardCornerRadius="@dimen/_6sdp"
         android:id="@+id/view_foreground"
         app:contentPadding="@dimen/_1sdp"
+        app:cardBackgroundColor="@color/textwhite"
         android:layout_margin="@dimen/_1sdp">
 
 
@@ -26,9 +27,9 @@
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"
                 android:layout_marginRight="@dimen/_5sdp"
-                android:background="@drawable/baseline_crop_original_black_36dp"/>
+                android:background="@drawable/bill2"/>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/layout1"
                 android:layout_toRightOf="@+id/bill_icon"
                 android:layout_width="match_parent"
@@ -48,15 +49,16 @@
                 <TextView
                     android:id="@+id/date"
                     android:layout_marginLeft="@dimen/_70sdp"
+                    android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/hinttextcolor"
                     android:text="Date"
                     android:textColor="#ABB2B9"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_below="@+id/layout1"
                 android:layout_toRightOf="@+id/bill_icon"
@@ -76,10 +78,12 @@
                     android:id="@+id/verified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_180sdp" />
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="@dimen/_10sdp"/>
+<!--                    android:layout_marginLeft="@dimen/_180sdp" />-->
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
 

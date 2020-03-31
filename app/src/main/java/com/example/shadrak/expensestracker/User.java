@@ -5,19 +5,19 @@ public class User {
     public String Name;
     public String Email;
     public String Userid;
-    public int PreviousId;
+    public String Prev_id;
 
     public User() {
 
     }
 
-    public User(String uid, String name, String email, int previousId) {
+    public User(String uid, String name, String email, String previousId) {
         this.Name = name;
         this.Email = email;
         this.Userid = uid;
-        this.PreviousId = previousId;
+        this.Prev_id = previousId;
     }
 
-    public int getPreviousId() { return PreviousId; }
+    public String getPreviousId() { return Prev_id; }
 
 }

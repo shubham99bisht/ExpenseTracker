@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".summary_fragment">
 
+<!--    <Spinner-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/time_filter"-->
+<!--        android:padding="@dimen/_6sdp"-->
+<!--        android:prompt="None"-->
+<!--        android:layout_margin="@dimen/_10sdp"/>-->
+
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"

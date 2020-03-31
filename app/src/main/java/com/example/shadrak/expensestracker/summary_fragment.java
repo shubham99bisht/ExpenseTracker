@@ -11,6 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -37,7 +41,7 @@ public class summary_fragment extends Fragment {
 
     FirebaseAuth firebaseAuth;
     FirebaseUser User;
-    String userId;
+    String userId, data;
     DatabaseReference rootref, childref;
     ArrayList<DataSnapshot> bill;
     String[] category;
@@ -45,6 +49,7 @@ public class summary_fragment extends Fragment {
 
     ArrayList<PieEntry> values;
     PieChart pieChart;
+    Spinner time_filter;
 
     public View onCreateView(@Nullable LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.summary_fragment,container,false);
@@ -86,8 +91,8 @@ public class summary_fragment extends Fragment {
                 int i = 0, j, index = 0, flag = 0, count = 0;
                 for(DataSnapshot data: dataSnapshot.getChildren()){
                     values.clear();
-                    cat = data.child("category").getValue(String.class);
-                    price = Float.valueOf(data.child("amount").getValue(String.class));
+                    cat = data.child("Category").getValue(String.class);
+                    price = Float.valueOf(data.child("Amount").getValue(String.class));
 //                    Log.d("cat & price:","cat: "+ cat +" price: "+price);
                     for(j = 0; j <= i; j++) {
                         if (Objects.equals(cat, String.valueOf(category[j]))) { // checking if category is already present in array
