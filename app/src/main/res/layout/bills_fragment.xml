@@ -8,12 +8,31 @@
     android:id="@+id/bills_fragment"
     tools:context=".bills_fragment">
 
-<!--    <Spinner-->
-<!--        android:id="@+id/bills_category"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:prompt="@string/category"-->
-<!--        android:layout_margin="@dimen/_8sdp"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@color/textwhite">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Category:"
+            android:layout_weight="1"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_2sdp"/>
+
+
+        <Spinner
+            android:id="@+id/bills_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_margin="@dimen/_2sdp"/>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bills_recyclerview"

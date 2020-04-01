@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class Registeractivity extends AppCompatActivity {
     EditText name, emailid, passwd, confirmpasswd;
@@ -94,10 +97,14 @@ public class Registeractivity extends AppCompatActivity {
 
                                 String uid = user.getUid();
                                 String prev_id = "0";
+
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+                                String memberSince = simpleDateFormat.format(new Date());
+
                                 if(uid == null)
                                     Toast.makeText(getApplicationContext(), "Some Error occured!!",Toast.LENGTH_SHORT).show();
                                 else {
-                                    User usr = new User(uid, fname, email, prev_id);
+                                    User usr = new User(uid, fname, email, prev_id, memberSince);
                                     mDatabase.child("users").child(uid).setValue(usr);
                                     i.putExtra("uid", uid); // Passing data between activities
                                     startActivity(i);

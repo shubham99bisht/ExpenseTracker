@@ -46,7 +46,7 @@ public class Homeactivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     FirebaseDatabase ref;
-    public static String ipaddress = "192.168.0.4";
+    public static String ipaddress = "192.168.0.5";
     public static String port = "5000";
 
     public static int TYPE_WIFI = 1;

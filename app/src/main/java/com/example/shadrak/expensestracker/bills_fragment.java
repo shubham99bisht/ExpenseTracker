@@ -45,7 +45,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
 
@@ -61,8 +63,7 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
     FirebaseDatabase firebaseDatabase;
     String userId, cat;
     Spinner category_spin;
-
-
+    Boolean flag = false;
 
     @Override
     public View onCreateView(@Nullable LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,43 +79,48 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
 
-//        // Spinner code -------- Starts
-//        rootref = FirebaseDatabase.getInstance().getReference();
-//        rootref.child("Category").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                ArrayList<String> cate = new ArrayList<>();
-//                category_spin = rootview.findViewById(R.id.bills_category);
-//
-//                for (DataSnapshot categorySnapshot: dataSnapshot.getChildren()) {
-//                    String cat = categorySnapshot.getValue(String.class);
-//                    cate.add(cat);
-//                }
-//
-//                ArrayAdapter<String> cat_adap = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, cate);
-//                cat_adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                category_spin.setAdapter(cat_adap);
-//
-//                category_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        Log.d("random", "Current Timestamp: " + format);
+
+        // Spinner code -------- Starts
+        rootref = FirebaseDatabase.getInstance().getReference();
+        rootref.child("Category").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<String> cate = new ArrayList<>();
+                category_spin = rootview.findViewById(R.id.bills_category);
+
+                for (DataSnapshot categorySnapshot: dataSnapshot.getChildren()) {
+                    String cat = categorySnapshot.getValue(String.class);
+                    cate.add(cat);
+                }
+
+                ArrayAdapter<String> cat_adap = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, cate);
+                cat_adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                category_spin.setAdapter(cat_adap);
+
+                category_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //                        cat = (String) adapterView.getSelectedItem();
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//        // Spinner code ---------- Ends
+                        cat = new String(adapterView.getItemAtPosition(i).toString());
+                        Log.d("spinner","value "+cat);
+                        adapter.filter(cat);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+//                        adapter.filter("none");
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        // Spinner code ---------- Ends
 
         return rootview;
 
@@ -152,7 +158,12 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
                     items = data.child("Items").getValue().toString();
                     bill_id = data.getKey();
 
-                  list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+//                    if(flag){
+//                        list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+//                    } else if(category.equals(cat)) {
+//                        list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+//                    }
+                    list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
 
                 }
                 adapter.notifyDataSetChanged();

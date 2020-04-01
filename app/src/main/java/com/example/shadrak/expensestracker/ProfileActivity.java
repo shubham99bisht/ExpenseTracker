@@ -14,13 +14,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.StringTokenizer;
+
 public class ProfileActivity extends AppCompatActivity {
 
     public FirebaseAuth mAuth;
+    public FirebaseUser user;
     public TextView username;
     public TextView email, since_when, bills_no;
-    public String uid, uname, count;
-    public DatabaseReference mdb;
+    public String uid, uname, count, emailid, since;
+    public DatabaseReference user_ref, bill_ref;
     public FirebaseDatabase database;
 
     @Override
@@ -33,19 +39,24 @@ public class ProfileActivity extends AppCompatActivity {
         since_when = findViewById(R.id.since_when);
         bills_no = findViewById(R.id.bills_uploaded);
 
-        show();
-    }
-
-    private void show() {
+//        show();
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        uid = user.getUid();
 
         database = FirebaseDatabase.getInstance();
-        mdb = database.getReference();
-        FirebaseUser userdata = FirebaseAuth.getInstance().getCurrentUser();
-        uid = userdata.getUid();
-        mdb.child("users").child(uid).addValueEventListener(new ValueEventListener() {
+        user_ref = database.getReference().child("users").child(uid);
+        bill_ref = database.getReference().child("Bills").child(uid);
+
+        user_ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 uname = dataSnapshot.child("Name").getValue().toString();
+                emailid = dataSnapshot.child("Email").getValue().toString();
+                since = dataSnapshot.child("Member_since").getValue().toString();
+                username.setText(uname);
+                email.setText(emailid);
+                since_when.setText(since);
             }
 
             @Override
@@ -54,10 +65,11 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        mdb.child("Bills").child(uid).addValueEventListener(new ValueEventListener() {
+        bill_ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 count = String.valueOf(dataSnapshot.getChildrenCount());
+                bills_no.setText(count);
             }
 
             @Override
@@ -65,16 +77,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-        Log.d("random","count "+count+" username "+uname);
-        Log.d("random","uid "+uid);
-//        String uname = userdata.getDisplayName();
-        String emaild = userdata.getEmail();
-        String since = String.valueOf(userdata.getMetadata().getCreationTimestamp());
-        System.out.println(userdata.getMetadata().getCreationTimestamp());
-        since_when.setText(since);
-        username.setText(uname);
-        email.setText(emaild);
-        bills_no.setText(count);
 
     }
 }

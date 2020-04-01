@@ -11,11 +11,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -25,15 +27,27 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewHolder> {
 
     bills_fragment context;
+    BillFormEditActivity edit_form;
     private static ArrayList<newBill> list;
+    String amount, date, place, vendor, category, status, link, items, bill_id;
     newBill bill;
-    int index;
     Context context1;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    DatabaseReference rootref;
+    String userId;
 
     public recyclerviewAdapter(bills_fragment bills_fragment, ArrayList<newBill> list,Context context1)
     {
@@ -67,6 +81,7 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
 //            viewHolder.foreground.getResources().getColor(R.color.cardcolor);
         } else {
             viewHolder.verified.setImageResource(R.drawable.ic_verified_user);
+//            viewHolder.submit.setEnabled(false);
         }
         viewHolder.foreground.setOnClickListener(new View.OnClickListener()
         {
@@ -116,14 +131,58 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
 //        notifyItemInserted(position);
     }
 
+    public void filter(final String cat) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        userId = user.getUid();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        rootref = database.getReference().child("Bills").child(userId);
+
+
+        rootref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                list.clear();
+                for(DataSnapshot data: dataSnapshot.getChildren())
+                {
+                    amount = data.child("Amount").getValue().toString();
+                    date = data.child("Date").getValue().toString();
+                    place = data.child("Address").getValue().toString();
+                    vendor = data.child("Company").getValue().toString();
+                    category = data.child("Category").getValue().toString();
+                    status = data.child("Status").getValue().toString();
+                    link = data.child("Link").getValue().toString();
+                    items = data.child("Items").getValue().toString();
+                    bill_id = data.getKey();
+
+                    if(cat.equals("None")){
+                        list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+                    } else if(cat.equals(category)){
+                        Log.d("filter","else");
+                        list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
+                    }
+
+                }
+                notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView v_name, date, cost, place, category;
         private ImageView verified, icon;
 //        public RelativeLayout background;
         public CardView foreground;
-//        public FrameLayout frameLayout;
-
+        public Button submit;
 
         public ViewHolder(View view) {
             super(view);
@@ -133,11 +192,9 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
             cost = view.findViewById(R.id.cost);
             verified = view.findViewById(R.id.verified);
             icon = view.findViewById(R.id.bill_icon);
+//            submit = view.findViewById(R.id.edit_billSubmit);
 //            background = view.findViewById(R.id.view_background);
             foreground = view.findViewById(R.id.view_foreground);
-//            frameLayout = view.findViewById(R.id.framelayout);
-//            place = view.findViewById(R.id.place);
-//            category = view.findViewById(R.id.category);
 
         }
     }

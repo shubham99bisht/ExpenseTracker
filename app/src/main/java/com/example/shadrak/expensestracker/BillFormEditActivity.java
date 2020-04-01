@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,7 +34,7 @@ public class BillFormEditActivity extends AppCompatActivity
     FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference, rootref;
     FirebaseAuth firebaseAuth;
-    String userID;
+    public String userID, status;
     FirebaseUser user;
     DataSnapshot dataSnapshot;
     String date, amount, place, items, category, cat, vendor;
@@ -84,7 +85,6 @@ public class BillFormEditActivity extends AppCompatActivity
         edit_vender=(EditText) findViewById(R.id.edit_vender);
         edit_address=(EditText) findViewById(R.id.edit_address);
         edit_date=(EditText) findViewById(R.id.edit_date);
-//        edit_category=(EditText) findViewById(R.id.edit_category);
         edit_items=(EditText) findViewById(R.id.edit_items);
         edit_amount=(EditText) findViewById(R.id.edit_amount);
         edit_billSubmit=(Button) findViewById(R.id.edit_billSubmit);
@@ -109,14 +109,19 @@ public class BillFormEditActivity extends AppCompatActivity
                 place = dataSnapshot.child("Address").getValue().toString();
                 vendor = dataSnapshot.child("Company").getValue().toString();
                 items = dataSnapshot.child("Items").getValue().toString();
-                System.out.println("testingData:"+amount +" "+category + " " +date);
+                status = dataSnapshot.child("Status").getValue().toString();
 
                 edit_vender.setText(vendor);
-//                edit_category.setText(category);
                 edit_date.setText(date);
                 edit_address.setText(place);
                 edit_items.setText(items);
                 edit_amount.setText(amount);
+
+//                Log.d("button","hjkjhkjhkj"+ status);
+                if(status.equals("0")){
+                    edit_billSubmit.setEnabled(true);
+                    edit_billSubmit.setBackgroundResource(R.drawable.btnldesign);
+                }
 
             }
             @Override
@@ -125,6 +130,7 @@ public class BillFormEditActivity extends AppCompatActivity
             }
         });
 
+
         edit_billSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -132,7 +138,6 @@ public class BillFormEditActivity extends AppCompatActivity
                 final String vender_ = edit_vender.getText().toString().trim();
                 final String address_ = edit_address.getText().toString().trim();
                 final String date_ = edit_date.getText().toString().trim();
-//                final String category_ = edit_category.getText().toString().trim();
                 final String items_ = edit_items.getText().toString().trim();
                 final String amount_ = edit_amount.getText().toString().trim();
 
