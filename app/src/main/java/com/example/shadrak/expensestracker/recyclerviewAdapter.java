@@ -156,7 +156,7 @@ class recyclerviewAdapter extends RecyclerView.Adapter<recyclerviewAdapter.ViewH
                     items = data.child("Items").getValue().toString();
                     bill_id = data.getKey();
 
-                    if(cat.equals("None")){
+                    if(cat.equals("All")){
                         list.add(new newBill(bill_id,amount, date, place, vendor, category, status, link, items));
                     } else if(cat.equals(category)){
                         Log.d("filter","else");

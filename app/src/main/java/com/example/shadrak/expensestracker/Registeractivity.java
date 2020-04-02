@@ -98,7 +98,7 @@ public class Registeractivity extends AppCompatActivity {
                                 String uid = user.getUid();
                                 String prev_id = "0";
 
-                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                                 String memberSince = simpleDateFormat.format(new Date());
 
                                 if(uid == null)

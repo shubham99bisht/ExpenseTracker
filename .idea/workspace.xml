@@ -6,12 +6,18 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="button" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="random" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea629564-b417-4574-9cc3-6c9216ed89f5" name="Default Changelist" comment="" />
+    <list default="true" id="ea629564-b417-4574-9cc3-6c9216ed89f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_bill_form_edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_bill_form_edit.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +28,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="a6c657ec7d03" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_API_23" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -38,47 +44,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/BillFormEditActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="440">
               <caret line="122" column="80" selection-start-line="122" selection-start-column="80" selection-end-line="122" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
               <folding>
-                <element signature="e#5197#7047#0" expanded="true" />
-                <element signature="e#7046#7047#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bill_form_edit.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="169" column="49" selection-start-line="169" selection-start-column="49" selection-end-line="169" selection-end-column="49" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btnldesign.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="1" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="368">
+              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-              <folding>
-                <element signature="e#132#147#0" expanded="true" />
-                <element signature="e#178#193#0" expanded="true" />
-                <element signature="e#208#223#0" expanded="true" />
-                <element signature="e#237#252#0" expanded="true" />
-                <element signature="e#265#280#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="94">
+              <caret line="84" column="10" selection-start-line="82" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -118,15 +115,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_registeractivity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Homeactivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/User.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bills_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/BillFormEditActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_bill_form_edit.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java" />
       </list>
     </option>
   </component>
@@ -141,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -181,6 +177,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
@@ -306,7 +303,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32410422" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32305196" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -364,12 +361,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/logo.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -510,34 +507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="101" column="75" lean-forward="true" selection-start-line="101" selection-start-column="75" selection-end-line="101" selection-end-column="75" />
-          <folding>
-            <element signature="e#1519#1777#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1814#5293#0" expanded="true" />
-            <element signature="e#5292#5293#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#7161#8896#0" expanded="true" />
-            <element signature="e#8895#8896#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -588,18 +561,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="998">
-          <caret line="184" column="29" lean-forward="true" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3061#3515#0" expanded="true" />
-            <element signature="e#3514#3515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bills_fragment.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -613,43 +574,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btnldesign.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="8" lean-forward="true" selection-start-line="1" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="36">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btnldesign2.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding>
-            <element signature="e#132#147#0" expanded="true" />
-            <element signature="e#178#193#0" expanded="true" />
-            <element signature="e#208#223#0" expanded="true" />
-            <element signature="e#237#252#0" expanded="true" />
-            <element signature="e#265#280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/BillFormEditActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="122" column="80" selection-start-line="122" selection-start-column="80" selection-end-line="122" selection-end-column="80" />
-          <folding>
-            <element signature="e#5197#7047#0" expanded="true" />
-            <element signature="e#7046#7047#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bill_form_edit.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="169" column="49" selection-start-line="169" selection-start-column="49" selection-end-line="169" selection-end-column="49" />
+        <state relative-caret-position="337">
+          <caret line="165" column="50" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
+          <folding>
+            <element signature="e#5406#5421#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/BillFormEditActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="122" column="80" selection-start-line="122" selection-start-column="80" selection-end-line="122" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/recyclerviewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/bills_fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="84" column="10" selection-start-line="82" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shadrak/expensestracker/Registeractivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

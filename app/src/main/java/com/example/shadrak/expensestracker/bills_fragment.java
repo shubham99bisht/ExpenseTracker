@@ -79,7 +79,10 @@ public class bills_fragment extends Fragment implements RecyclerItemTouchHelper.
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
 
-//        Log.d("random", "Current Timestamp: " + format);
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        String memberSince = simpleDateFormat.format(new Date());
+//        Log.d("random", "Current Timestamp: " + memberSince);
 
         // Spinner code -------- Starts
         rootref = FirebaseDatabase.getInstance().getReference();

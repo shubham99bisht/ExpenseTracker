@@ -164,7 +164,7 @@
         android:textStyle="bold"
         android:enabled="false"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:textColorHighlight="@color/highlist"
         android:textColor="@color/textwhite"
         android:background="@drawable/btnldesign2"/>
