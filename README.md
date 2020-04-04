@@ -32,6 +32,5 @@ Screenshots | Screenshots | Screenshots
 * **MPAndroidChart** (Piechart)
 
 #### Team Members:
-* Sonu Shahuji
 * Mukund Choudhary
-* Shadrak Gurupnor
+* [Shadrak Gurupnor](https://github.com/shadrak98)
